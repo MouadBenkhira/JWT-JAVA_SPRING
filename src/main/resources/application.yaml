@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: testingJavaKnowledge
+  datasource:
+    url: jdbc:postgresql://localhost:5434/emplooyeeDatabase
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+          envers.autoRegisterListeners: true
+    open-in-view: false
+    show-sql: false
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    table: flyway_schema_history
+    batch:
+      jdbc:
+        initialize-schema: never
+    profiles:
+      active: dev
+
+  logging:
+   level:
+     root: INFO
+     com.example.testingJavaKnowledge: DEBUG
+
+
+SECRET:
+  "0lpqMh8VLmyRaTFVT3dOtYa7VWCiwrJ7kfZuQrNb6MV"
